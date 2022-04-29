@@ -20,16 +20,16 @@ output = /\b(\w)?(\w)\w?\2\1/g.test(str4);
 console.log(output);
 
 //E
-let str5 ="“Bee zapp Crow Eagle Zorro  mouse Ape  you";
-output = str5.match(/\b[b-yB-Y][b-yB-Y]*\b/g).map(function (val){
+let str5 = "“Bee zapp Crow Eagle Zorro  mouse Ape  you";
+output = str5.match(/\b[b-yB-Y][b-yB-Y]*\b/g).map(function (val) {
     return val
 });
 console.log(output);
 
 //F
-let str6 ="“Is <b>4 < -1/12</b> true? The <b>answer</b> will <em>surprise</em> you.";
-output = str6.match(/<(.*?)>(.*?)<\/(.*?)>/g).map(function (val){
-    return val.replace(/<[^<>]+>/g,'');
+let str6 = "“Is <b>4 < -1/12</b> true? The <b>answer</b> will <em>surprise</em> you.";
+output = str6.match(/<(.*?)>(.*?)<\/(.*?)>/g).map(function (val) {
+    return val.replace(/<[^<>]+>/g, '');
 });
 
 console.log(output);
