@@ -43,10 +43,10 @@ isAllowed(regEx[9].test(str7));
 let str8 = "Switch: (O_n)"
 isAllowed(regEx[10].test(str8));
 
-function isAllowed(input){
-    if(input){
+function isAllowed(input) {
+    if (input) {
         console.log(`Test approved!`);
-    }else if(!input){
+    } else if (!input) {
         console.error(`Test failure`)
     }
 }
