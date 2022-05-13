@@ -1,23 +1,15 @@
-function cycleStr(str, n) {
-    let capitalLetters = [];
-    let smallLetters = [];
-    let numerics = [];
-    for (let i = 1; i <= 26; i++) {
-        capitalLetters.push(i + 64);
-        smallLetters.push(i + 97);
-        if (i <= 10) {
-            numerics.push(i + 48);
+function cycleStr(str) {
+    let output = str.split('').map((char) => {
+        if (char.match(/[a-z0-9]/i)) {
+            var code = char.charCodeAt();
+            let shift = code >= 48 && code <= 57 ? 48 : code >= 65 && code <= 90 ? 65 : code >= 97 && code <= 122 ? 97 : 0;
+            if (code >= 48 && code <= 57) {
+                return String.fromCharCode(Math.round((code - shift + 1) % 10) + shift);
+            } else {
+                return String.fromCharCode(Math.round((code - shift + 1) % 26) + shift);
+            }
         }
-    }
-    let output = str.split("").map((char) => {
-        let code = char.charCodeAt();
-        let shift = code >= 48 && code <= 57 ? 48 : code >= 65 && code <= 90 ? 65 : code >= 97 && code <= 122 ? 97 : 0;
-        if (code >= 48 && code <= 57) {
-            return String.fromCharCode(Math.round((code - shift + n) % 10) + shift);
-        } else {
-            return String.fromCharCode(Math.round((code - shift + n) % 26) + shift);
-        }
-    }).join("");
+    }).join('');
     return output;
 }
 
@@ -49,7 +41,7 @@ function translate(paragraph) {
 }
 
 //A
-console.log(cycleStr('aZ90', 1));
+console.log(cycleStr('ZaK89'));
 
 //B
 hashCreator('yolo');
