@@ -1,22 +1,22 @@
 let output;
 // A
 let str1 = "September 29, 1972";
-output = /(January|February|March|April|May|June|July|August|September|October|November|December)(\s*\d{0,2}\s*),(\s*\d{4})/gi.test(str1);
+output = /\b(January|February|March|April|May|June|July|August|September|October|November|December)(\s*\d{0,2}\s*),(\s*\d{4})\b/gi.test(str1);
 isValid(output);
 
 //B
 let str2 = "52x";
-output = /\D(\d+)|\d(\D)/g.test(str2);
+output = /\b\D(\d+)|\b\d(\D)/g.test(str2);
 isValid(output);
 
 // //C
 let str3 = "program.cpp";
-output = /^[\D]+\.(txt|java|cpp)/g.test(str3);
+output = /\b^[\D]+\.(txt|java|cpp)\b/g.test(str3);
 isValid(output);
 
 // //D
 let str4 = "_1a1_";
-output = /\b(\w)?(\w)\w?\2\1/g.test(str4);
+output = /\b(\w)?(\w)\w?\2\1\b/g.test(str4);
 isValid(output);
 
 // //E
