@@ -1,15 +1,13 @@
 function cycleStr(str) {
-    let output = str.split('').map((char) => {
-        if (char.match(/[a-z0-9]/i)) {
-            var code = char.charCodeAt();
-            let shift = code >= 48 && code <= 57 ? 48 : code >= 65 && code <= 90 ? 65 : code >= 97 && code <= 122 ? 97 : 0;
-            if (code >= 48 && code <= 57) {
-                return String.fromCharCode(Math.round((code - shift + 1) % 10) + shift);
-            } else {
-                return String.fromCharCode(Math.round((code - shift + 1) % 26) + shift);
-            }
+    let output = str.replace(/[a-z0-9]/gi, char => {
+        let code = char.charCodeAt();
+        let shift = code >= 48 && code <= 57 ? 48 : code >= 65 && code <= 90 ? 65 : code >= 97 && code <= 122 ? 97 : 0;
+        if (code >= 48 && code <= 57) {
+            return String.fromCharCode(Math.round((code - shift + 1) % 10) + shift);
+        } else {
+            return String.fromCharCode(Math.round((code - shift + 1) % 26) + shift);
         }
-    }).join('');
+    });
     return output;
 }
 
